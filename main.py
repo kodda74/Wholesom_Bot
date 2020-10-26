@@ -8,6 +8,7 @@ reddit = praw.Reddit(client_id='DEVELOPER ID',
                      password='BOT PASSWORD HERE',
                      user_agent='OPTIONAL')
 subreddit = reddit.subreddit('SUBREDDITS HERE')
+
 dysl = '!hgu'
 hug = '!hug'
 joke = '!dadjoke'
@@ -23,6 +24,8 @@ for comment in subreddit.stream.comments():
 
 
                                 ])
+        author = comment.author
+        print('Found, posted by ' + author.name)
     if joke in comment.body:
         joke = random.choice([
                             "My wife is really mad at the fact that I have no sense of direction. So I packed up my "
@@ -40,6 +43,8 @@ for comment in subreddit.stream.comments():
                             "How do you make a tissue dance? You put a little boogie in it.",
                             "Why did the math book look so sad? Because of all of its problems!"
                               ])
+        author = comment.author
+        print('Found, posted by ' + author.name)
         comment.reply(joke)
     if hug in comment.body:
         hugGifs = random.choice(["https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134",
